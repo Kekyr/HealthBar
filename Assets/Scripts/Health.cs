@@ -1,22 +1,12 @@
-using System;
+using UnityEngine;
 
-[Serializable]
-public class Health
+public class Health : MonoBehaviour
 {
-    private float _maxHealthPoints;
+    [SerializeField] private float _maxHealthPoints;
+
     private float _healthPoints;
 
-    public Health(float maxHealthPoints)
-    {
-        float defaultMaxHealthPoints = 100;
-
-        if (maxHealthPoints <= 0)
-            maxHealthPoints = defaultMaxHealthPoints;
-
-        _maxHealthPoints = maxHealthPoints;
-    }
-
-    public float HealthPointsRatio => _healthPoints/_maxHealthPoints;
+    public float Ratio => _healthPoints / _maxHealthPoints;
 
     public void Increase(float amountOfHPs)
     {

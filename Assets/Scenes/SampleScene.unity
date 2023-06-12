@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0.1
-  _healthPoints: 0
+  _health: {fileID: 1368260271}
 --- !u!1 &407976753
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,8 +417,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 244558864}
-        m_TargetAssemblyTypeName: HealthView, Assembly-CSharp
+      - m_Target: {fileID: 1368260271}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
         m_MethodName: Decrease
         m_Mode: 4
         m_Arguments:
@@ -771,7 +771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1368260270}
-  - component: {fileID: 1368260269}
+  - component: {fileID: 1368260271}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -779,20 +779,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1368260269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368260268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453e182a2ed03ae45877245528d02ba1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealthPoints: 100
-  _healthView: {fileID: 244558864}
 --- !u!4 &1368260270
 Transform:
   m_ObjectHideFlags: 0
@@ -808,6 +794,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1368260271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368260268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d637c7e4f755ba40a250e6511da02a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealthPoints: 100
 --- !u!1 &1389105138
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,8 +891,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 244558864}
-        m_TargetAssemblyTypeName: HealthView, Assembly-CSharp
+      - m_Target: {fileID: 1368260271}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
         m_MethodName: Increase
         m_Mode: 4
         m_Arguments:

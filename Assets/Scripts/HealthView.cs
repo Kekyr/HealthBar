@@ -5,31 +5,11 @@ using UnityEngine.UI;
 public class HealthView : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private Health _health;
 
-    private Health _health;
     private Slider _slider;
 
-    private float _healthPoints;
-    private float _newHealthPoints;
-
-    public void Init(Health health)
-    {
-        _health = health;
-        _healthPoints = _health.HealthPointsRatio;
-        _slider.value = _healthPoints;
-    }
-
-    public void Increase(float amountOfHPs)
-    {
-        _health.Increase(amountOfHPs);
-        _newHealthPoints = _health.HealthPointsRatio;
-    }
-
-    public void Decrease(float amountOfHPs)
-    {
-        _health.Decrease(amountOfHPs);
-        _newHealthPoints = _health.HealthPointsRatio;
-    }
+    private float _filled;
 
     private void Awake()
     {
@@ -38,10 +18,10 @@ public class HealthView : MonoBehaviour
 
     private void Update()
     {
-        if (_healthPoints != _newHealthPoints)
-        {
-            _slider.value = Mathf.MoveTowards(_healthPoints, _newHealthPoints, _speed * Time.deltaTime);
-            _healthPoints = _slider.value;
+        if (_filled != _health.Ratio)
+        { 
+            _slider.value = Mathf.MoveTowards(_filled, _health.Ratio, _speed * Time.deltaTime);
+            _filled = _slider.value;
         }
     }
 }
