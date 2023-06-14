@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,23 +6,31 @@ using UnityEngine.UI;
 public class HealthView : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    [SerializeField] private Health _health;
 
+    private Coroutine _changeValue;
     private Slider _slider;
-
     private float _filled;
+
+    public void ChangeDisplay(float newValue)
+    {
+        if (_changeValue != null)
+            StopCoroutine(_changeValue);
+
+        _changeValue = StartCoroutine(ChangeValue(newValue));
+    }
+
+    private IEnumerator ChangeValue(float newValue)
+    {
+        while (_filled != newValue)
+        {
+            _slider.value = Mathf.MoveTowards(_filled, newValue, _speed * Time.deltaTime);
+            _filled = _slider.value;
+            yield return null;
+        }
+    }
 
     private void Awake()
     {
         _slider = GetComponent<Slider>();
-    }
-
-    private void Update()
-    {
-        if (_filled != _health.Ratio)
-        { 
-            _slider.value = Mathf.MoveTowards(_filled, _health.Ratio, _speed * Time.deltaTime);
-            _filled = _slider.value;
-        }
     }
 }
