@@ -12,7 +12,7 @@ public class HealthView : MonoBehaviour
     private Slider _slider;
     private float _filled;
 
-    public void ChangeDisplay(float newValue)
+    public void OnHealthChanged(float newValue)
     {
         if (_changeValue != null)
             StopCoroutine(_changeValue);
@@ -37,11 +37,11 @@ public class HealthView : MonoBehaviour
 
     private void OnEnable()
     {
-        _health.Changed += ChangeDisplay;
+        _health.Changed += OnHealthChanged;
     }
 
     private void OnDisable()
     {
-        _health.Changed -= ChangeDisplay;
+        _health.Changed -= OnHealthChanged;
     }
 }

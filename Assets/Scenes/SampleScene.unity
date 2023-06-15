@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b34d21ec96526914fa97e91f7389cb6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 1368260271}
   _speed: 0.1
 --- !u!1 &407976753
 GameObject:
@@ -806,7 +807,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealthPoints: 100
-  _healthView: {fileID: 244558864}
 --- !u!1 &1389105138
 GameObject:
   m_ObjectHideFlags: 0
