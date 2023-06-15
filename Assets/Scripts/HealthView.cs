@@ -5,6 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class HealthView : MonoBehaviour
 {
+    [SerializeField] private Health _health;
     [SerializeField] private float _speed;
 
     private Coroutine _changeValue;
@@ -32,5 +33,15 @@ public class HealthView : MonoBehaviour
     private void Awake()
     {
         _slider = GetComponent<Slider>();
+    }
+
+    private void OnEnable()
+    {
+        _health.Changed += ChangeDisplay;
+    }
+
+    private void OnDisable()
+    {
+        _health.Changed -= ChangeDisplay;
     }
 }

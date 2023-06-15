@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
+    public event UnityAction<float> Changed;
+
     [SerializeField] private float _maxHealthPoints;
-    [SerializeField] private HealthView _healthView;
 
     private float _healthPoints;
 
@@ -13,13 +15,13 @@ public class Health : MonoBehaviour
     {
         float newHPs = _healthPoints + amountOfHPs;
         _healthPoints = newHPs < _maxHealthPoints ? newHPs : _maxHealthPoints;
-        _healthView.ChangeDisplay(Ratio);
+        Changed?.Invoke(Ratio);
     }
 
     public void Decrease(float amountOfHPs)
     {
         float newHPs = _healthPoints - amountOfHPs;
         _healthPoints = newHPs > 0 ? newHPs : 0;
-        _healthView.ChangeDisplay(Ratio);
+        Changed?.Invoke(Ratio);
     }
 }

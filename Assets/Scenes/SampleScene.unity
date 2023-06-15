@@ -295,7 +295,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0.1
-  _health: {fileID: 1368260271}
 --- !u!1 &407976753
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,6 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealthPoints: 100
+  _healthView: {fileID: 244558864}
 --- !u!1 &1389105138
 GameObject:
   m_ObjectHideFlags: 0
